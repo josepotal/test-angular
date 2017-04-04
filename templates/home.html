@@ -1,0 +1,23 @@
+<div class="jumbotron text-center">
+    <h1>Página de Inicio</h1>
+    <p>{{ message }}</p>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 locations">
+            <p>Ubicaciones</p>
+        </div>
+        <div class="col-md-4 col-md-offset-1 pictures">
+            <img src="http://images.all-free-download.com/images/graphiclarge/flower_pink_background_vector_art_148632.jpg" class="img-fluid" alt="Responsive image">
+            
+        </div>
+        <div class="col-md-4 col-md-offset-1 map-space">
+          <ng-map id="map" center="40.74, -74.18">
+            <marker animation="DROP" position="40.74, -74.18"></marker>
+          </ng-map>
+            <!-- <ng-map id="map" default-style="false" center="[ 23, 23 ]" zoom="6">
+              <marker animation="DROP" position="{{vm.lat}}, {{vm.lng}}" on-click="map.showInfoWindow('info{{$index}}')"></marker>
+            </ng-map> -->
+        </div>
+    </div>
+</div>

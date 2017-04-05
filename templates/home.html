@@ -6,18 +6,38 @@
     <div class="row">
         <div class="col-md-2 locations">
             <p>Ubicaciones</p>
+            <section id="filter-country">
+                <div class="form-group">
+                    <label for="">Search a Country</label>
+                    <input type="text" class="form-control" autofocus placeholder="Type any Country..." ng-model="query">
+                </div>
+            </section>
+            <div>
+            <ul class="list-unstyled list-group" id="listed-countries">
+                <li id="single-country" ng-repeat="country in allCountries | filter : {name : query} | limitTo:4">
+                    <div>
+                        <h5>
+                            <a href="#">{{country.name}}</a>
+                            <a href="" class=" glyphicon glyphicon-map-marker"></a>
+                        </h5>
+                    </div>
+                </li>
+            </ul>
+            </div>
         </div>
+
         <div class="col-md-4 col-md-offset-1 pictures">
-            <img src="http://images.all-free-download.com/images/graphiclarge/flower_pink_background_vector_art_148632.jpg" class="img-fluid" alt="Responsive image">
-            
+            <div ng-repeat="country in allCountries | filter : {name : query} | limitTo:1">
+                <img src="{{country.flag}}" alt="Responsive image"> 
+            </div>
         </div>
+
         <div class="col-md-4 col-md-offset-1 map-space">
-          <ng-map id="map" center="40.74, -74.18">
-            <marker animation="DROP" position="40.74, -74.18"></marker>
-          </ng-map>
-            <!-- <ng-map id="map" default-style="false" center="[ 23, 23 ]" zoom="6">
-              <marker animation="DROP" position="{{vm.lat}}, {{vm.lng}}" on-click="map.showInfoWindow('info{{$index}}')"></marker>
-            </ng-map> -->
+            <div ng-repeat="country in allCountries | filter : {name : query} | limitTo:1">
+                <ng-map id="map" default-style="false" center="{{country.lat}}, {{country.long}}" zoom="5">
+                    <marker animation="DROP" position="{{country.lat}}, {{country.long}}"></marker>
+                </ng-map>
+            </div>
         </div>
     </div>
 </div>

@@ -4,11 +4,11 @@
   margin: 0 auto
 
 .locations
-  height: 350px
+  min-height: 375px
   border: 1px solid black
 
 .pictures
-  height: 350px
+  min-height: 375px
   border: 1px solid black
   img
     margin: 0 auto 
@@ -16,23 +16,25 @@
     max-width: 100%
 
 .map-space
-  height: 350px
+  min-height: 375px
   border: 1px solid black
 
+h4
+  text-align: center
 
 @media all and (max-width: 1000px)
-
-  .locations
-    margin: 30px
-    height: 350px
-    border: 1px solid black
-
-  .pictures
-    margin: 30px
-    height: 350px
-    border: 1px solid black
-
-  .map
-    margin: 30px
-    height: 350px
-    border: 1px solid black
+  .row
+    .locations
+      margin: 30px
+      min-height: 100px
+      overflow: hidden
+      border: 1px solid black
+    .pictures
+      margin: 30px
+      min-height: 100px
+      overflow: hidden
+      border: 1px solid black
+    .map
+      margin: 30px
+      min-height: 375px
+      border: 1px solid black

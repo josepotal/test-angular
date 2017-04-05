@@ -45,7 +45,7 @@
                 "name": "Stockholm",
                 "lat": "59.333911",
                 "long": "18.067276",
-                "img": "http://www.ayuntamiento.org/fotos/ayuntamiento-sant-marti-de-tous-22173988.jpg"
+                "img": "http://blog.secretescapes.com/wp-content/uploads/2015/07/stockholm.jpg"
             },
             {
                 "id":"5",

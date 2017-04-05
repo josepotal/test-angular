@@ -24,11 +24,15 @@
 
         <section class="col-md-4 col-md-offset-1 pictures">
             <div class="col-xs-12">
-                <h4>Foto: {{nameSelected}}</h4>
+                <h4>Imagen</h4>
             </div>
             <div class="col-xs-12">
-                <img ng-src="{{imgSelected}}" alt="Responsive image">
+                <figure>
+                    <img ng-src="{{imgSelected}}" alt="Responsive image">
+                    <figcaption>Picture of: <strong>{{nameSelected}}</strong></figcaption>
+                </figure>
             </div>
+            
         </section>
         
         <section class="col-md-4 col-md-offset-1 map-space">
@@ -41,7 +45,7 @@
                         <marker animation="DROP" position="{{latSelected}}, {{longSelected}}"></marker>
                     </div>
                 </ng-map>
-                <p>Lat: {{latSelected}} Long: {{longSelected}}</p>
+                <p><strong>Lat: </strong> {{latSelected}} <strong>Long: </strong>{{longSelected}}</p>
             </div>
         </section>
     </div>

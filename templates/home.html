@@ -4,40 +4,45 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-md-2 locations">
-            <p>Ubicaciones</p>
-            <section id="filter-country">
-                <div class="form-group">
-                    <label for="">Search a Country</label>
-                    <input type="text" class="form-control" autofocus placeholder="Type any Country..." ng-model="query">
-                </div>
-            </section>
-            <div>
-            <ul class="list-unstyled list-group" id="listed-countries">
-                <li id="single-country" ng-repeat="country in allCountries | filter : {name : query} | limitTo:4">
+        
+        <section class="col-md-2 locations">
+            <div class="col-xs-12">
+                <h4>Ubicaciones</h4>
+            </div>
+            <div class="col-xs-12">
+                <ul class="list-unstyled list-group" id="listed-countries">
+                    <li id="location{{$index}}" ng-repeat="location in locations">
+                        <div>
+                            <h5>
+                                <a href="" ng-click="getLocation($event, location)">{{location.name}}</a>
+                            </h5>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="col-md-4 col-md-offset-1 pictures">
+            <div class="col-xs-12">
+                <h4>Foto: {{nameSelected}}</h4>
+            </div>
+            <div class="col-xs-12">
+                <img ng-src="{{imgSelected}}" alt="Responsive image">
+            </div>
+        </section>
+        
+        <section class="col-md-4 col-md-offset-1 map-space">
+            <div class="col-xs-12">
+                <h4>Mapa</h4>
+            </div>
+            <div class="col-xs-12">
+                <ng-map id="map" default-style="false" center="{{latSelected}}, {{longSelected}}" zoom="5">
                     <div>
-                        <h5>
-                            <a href="#">{{country.name}}</a>
-                            <a href="" class=" glyphicon glyphicon-map-marker"></a>
-                        </h5>
+                        <marker animation="DROP" position="{{latSelected}}, {{longSelected}}"></marker>
                     </div>
-                </li>
-            </ul>
-            </div>
-        </div>
-
-        <div class="col-md-4 col-md-offset-1 pictures">
-            <div ng-repeat="country in allCountries | filter : {name : query} | limitTo:1">
-                <img src="{{country.flag}}" alt="Responsive image"> 
-            </div>
-        </div>
-
-        <div class="col-md-4 col-md-offset-1 map-space">
-            <div ng-repeat="country in allCountries | filter : {name : query} | limitTo:1">
-                <ng-map id="map" default-style="false" center="{{country.lat}}, {{country.long}}" zoom="5">
-                    <marker animation="DROP" position="{{country.lat}}, {{country.long}}"></marker>
                 </ng-map>
+                <p>Lat: {{latSelected}} Long: {{longSelected}}</p>
             </div>
-        </div>
+        </section>
     </div>
 </div>
